@@ -620,8 +620,9 @@ video {
   z-index: 10;
 }
 
-.col-start-1 {
-  grid-column-start: 1;
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mt-8 {
@@ -647,10 +648,6 @@ video {
 
 .h-8 {
   height: 2rem;
-}
-
-.h-auto {
-  height: auto;
 }
 
 .h-full {
@@ -738,6 +735,12 @@ video {
   margin-left: calc(3rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -777,6 +780,10 @@ video {
   padding: 0.5rem;
 }
 
+.p-4 {
+  padding: 1rem;
+}
+
 .p-6 {
   padding: 1.5rem;
 }
@@ -790,14 +797,14 @@ video {
   padding-right: 1.5rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 .pl-10 {
@@ -806,6 +813,10 @@ video {
 
 .pt-12 {
   padding-top: 3rem;
+}
+
+.pt-30 {
+  padding-top: 7rem;;
 }
 
 .text-center {
@@ -830,15 +841,15 @@ video {
 }
 
 .text-space-4xl {
-  font-size: 9rem;
+  font-size: min(max(5.125rem,20vw),9rem);
 }
 
 .text-space-lg {
-  font-size: 1.75rem;
+  font-size: min(max(1rem,4vw),1.75rem);
 }
 
 .text-space-md {
-  font-size: 1.125rem;
+  font-size: min(max(1rem,4.8vw),1.125rem);
 }
 
 .text-space-sm {
@@ -846,7 +857,7 @@ video {
 }
 
 .text-space-xl {
-  font-size: 2rem;
+  font-size: min(max(1.125rem,4vw),2rem);
 }
 
 .text-space-xs {
@@ -873,6 +884,15 @@ video {
   letter-spacing: 0.143em;
 }
 
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.text-space-blue-dark {
+  --tw-text-opacity: 1;
+  color: rgb(11 13 23 / var(--tw-text-opacity, 1));
+}
+
 .text-space-blue-light {
   --tw-text-opacity: 1;
   color: rgb(208 214 249 / var(--tw-text-opacity, 1));
@@ -881,11 +901,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-space-blue-dark {
-  --tw-text-opacity: 1;
-  color: rgb(11 13 23 / var(--tw-text-opacity, 1));
 }
 
 .antialiased {
@@ -996,15 +1011,20 @@ video {
     display: none;
   }
 
+  .md\:size-68 {
+    width: 17rem;;
+    height: 17rem;;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .md\:text-space-4xl {
-    font-size: 9rem;
+  .md\:leading-space {
+    line-height: 2.025rem;
   }
 
-  .md\:text-space-lg {
-    font-size: 1.75rem;
+  .md\:tracking-normal {
+    letter-spacing: 0em;
   }
 }

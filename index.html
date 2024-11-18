@@ -20,7 +20,7 @@
 <body x-data="showContent()" class="antialiased">
 <header class="relative z-10 p-6">
   <nav class="flex justify-between items-center">
-    <div>
+    <div class="flex">
 
     <a href="/" title="home">
       <img src="./assets/shared/logo.svg" alt="Space tourism website logo">
@@ -175,28 +175,32 @@
   </nav>
 </header>
 <main>
-  <picture class="absolute z-0 inset-0 h-auto w-full">
+  <span class="absolute z-0 inset-0">
+  <picture>
     <source srcset="./assets/home/background-home-desktop.jpg" media="(min-width:1024px)">
     <source srcset="./assets/home/background-home-tablet.jpg" media="(min-width: 640px)">
     <img class="w-full h-full object-cover" src="./assets/home/background-home-mobile.jpg" alt="">
   </picture>
+  </span>
 
-  <section class="relative text-white px-6">
-    <article>
-      <span class="block text-space-md font-heading uppercase text-center md:text-space-lg">
+  <section class="relative text-white px-6 py-4">
+    <article class="space-y-2">
+      <span class="block text-space-lg tracking-space-xl uppercase text-center">
         So, you want to travel to
       </span>
-      <h1 class="text-space-3xl font-heading uppercase text-center md:text-space-4xl">
+      <h1 class="text-space-4xl font-heading uppercase text-center">
         Space
       </h1>
-      <p class="text-space-md leading-space text-center">
+      <p class="text-space-md tracking-wide text-center text-space-blue-light md:leading-space md:tracking-normal">
         Let’s face it; if you want to go to space, you might as well genuinely go to
         outer space and not hover kind of on the edge of it. Well sit back, and relax
         because we’ll give you a truly out of this world experience!
       </p>
-      <a href="#" class="text-space-blue-dark bg-white rounded-full grid place-content-center size-36">
-        <span class="text-space-xl font-heading uppercase ">Explore</span>
-      </a>
+      <div class="pt-30">
+        <a href="#" class="text-space-blue-dark bg-white rounded-full grid place-content-center size-36 p-4 mx-auto md:size-68">
+          <span class="text-space-xl font-heading uppercase">Explore</span>
+        </a>
+      </div>
     </article>
   </section>
 
