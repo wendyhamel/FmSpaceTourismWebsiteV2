@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="showContent()">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +15,14 @@
   <script defer src="./src/site.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <title>Frontend Mentor | Space tourism website</title>
+  <title x-text="'Space tourism - ' + currentPage"></title>
 </head>
-<body x-data="showContent()" class="antialiased">
+<body class="antialiased" x-on:keydown.escape="mobileMenuOpened = false">
 <header class="relative z-10 p-6">
   <nav class="flex justify-between items-center">
     <div class="flex">
 
-    <a href="/" title="home">
+    <a href="/" title="home" class="size-10">
       <img src="./assets/shared/logo.svg" alt="Space tourism website logo">
     </a>
       <div x-data="{ open: false }">
@@ -97,7 +97,7 @@
       <button
           type="button"
           title="open the mobile menu"
-          x-on:click="mobileMnuOpened = true"
+          x-on:click="mobileMenuOpened = true"
       >
         <img src="./assets/shared/icon-hamburger.svg" alt="">
       </button>
@@ -106,21 +106,15 @@
           aria-labelledby="mobile navigation menu"
           role="dialog"
           aria-modal="true"
-          x-show="mobileMnuOpened === true"
+          x-show="mobileMenuOpened === true"
           x-cloak
       >
-        <!-- Background backdrop, show/hide based on slide-over state. -->
-        <div
-            class="fixed inset-0"
-            x-show="mobileMnuOpened === true"
-            x-cloak
-        ></div>
-
         <div class="fixed inset-0 overflow-hidden">
           <div class="absolute inset-0 overflow-hidden">
             <div
-                class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
-                x-show="mobileMnuOpened === true"
+                class="pointer-events-none fixed inset-y-0 right-0 flex pl-[7.5625rem] min-w-64 max-w-full"
+                x-show="mobileMenuOpened === true"
+                x-on:click.outside="mobileMenuOpened = false"
                 x-cloak
                 x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
                 x-transition:enter-start="translate-x-full"
@@ -130,14 +124,14 @@
                 x-transition:leave-end="translate-x-full"
             >
               <div class="pointer-events-auto w-screen max-w-md">
-                <div class="flex h-full flex-col overflow-y-scroll backdrop-blur-[80px] bg-space-blue-dark/15 text-white py-8 shadow-xl">
-                  <div class="px-6">
+                <div class="flex h-full flex-col overflow-y-auto backdrop-blur-2xl bg-space-blue-dark/15 text-white pt-7 pb-8 shadow-xl">
+                  <div class="px-7">
                     <div class="flex items-start justify-end">
-                      <div class="flex h-8 items-center">
+                      <div class="flex items-center">
                         <button
                             type="button"
                             class="relative focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            x-on:click="mobileMnuOpened = false"
+                            x-on:click="mobileMenuOpened = false"
                             title="close the mobile menu"
                         >
                           <span class="absolute -inset-2.5"></span>
@@ -147,10 +141,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="relative mt-8 flex-1 px-6 pt-12">
-                    <div class="grid gap-8 place-items-start">
+                  <div class="relative mt-8 flex-1 px-8 pt-12">
+                    <div class="grid gap-7 place-items-start">
                       <template x-for="menuItem in menu">
-                        <a class="text-space-sm uppercase" :href="menuItem.href">
+                        <a
+                            class="text-space-sm tracking-space-lg uppercase space-x-2 w-full border-r-[3px]"
+                            :class="currentPage === menuItem.title ? 'border-r-white hover:border-r-space-blue-light' : 'border-r-transparent hover:border-r-white/50'"
+                            :href="menuItem.href"
+                        >
                           <strong x-text="menuItem.number"></strong>
                           <span x-text="menuItem.title"></span>
                         </a>
@@ -175,17 +173,15 @@
   </nav>
 </header>
 <main>
-  <span class="absolute z-0 inset-0">
   <picture>
     <source srcset="./assets/home/background-home-desktop.jpg" media="(min-width:1024px)">
     <source srcset="./assets/home/background-home-tablet.jpg" media="(min-width: 640px)">
-    <img class="w-full h-full object-cover" src="./assets/home/background-home-mobile.jpg" alt="">
+    <img class="absolute z-0 inset-0 w-full h-full object-cover object-center-bottom" src="./assets/home/background-home-mobile.jpg" alt="">
   </picture>
-  </span>
 
   <section class="relative text-white px-6 py-4">
     <article class="space-y-2">
-      <span class="block text-space-lg tracking-space-xl uppercase text-center">
+      <span class="block text-space-lg tracking-space-xl uppercase text-space-blue-light text-center">
         So, you want to travel to
       </span>
       <h1 class="text-space-4xl font-heading uppercase text-center">

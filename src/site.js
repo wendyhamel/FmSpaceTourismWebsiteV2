@@ -22,7 +22,8 @@ window.showContent = function () {
 				href: "#"
 			},
 		],
-		mobileMnuOpened: false,
+		mobileMenuOpened: true,
+		currentPage: 'Home'
 
 	}
 }
