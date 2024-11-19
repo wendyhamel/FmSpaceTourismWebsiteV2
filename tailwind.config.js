@@ -19,7 +19,7 @@ module.exports = {
             'space-2xl': '3.5rem', // preset 3
             'space-xl': 'min(max(1.125rem,4vw),2rem)', // preset 4
             'space-lg': 'min(max(1rem,4vw),1.75rem)', // preset 5 & preset 6
-            'space-md': 'min(max(1rem,4.8vw),1.125rem)', // preset 9
+        'space-md': 'min(max(1rem,4.8vw),1.2rem)', // preset 9
             'space-sm': '1rem', // preset 8
             'space-xs': '0.875rem', // preset 7
         },

@@ -22,7 +22,7 @@ window.showContent = function () {
 				href: "#"
 			},
 		],
-		mobileMenuOpened: true,
+		mobileMenuOpened: false,
 		currentPage: 'Home'
 
 	}
