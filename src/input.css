@@ -5,3 +5,13 @@
 [x-cloak] {
 	display: none!important;
 }
+
+.preset-1 { @apply font-heading text-space-4xl uppercase }
+.preset-2 { @apply font-heading text-space-3xl uppercase }
+.preset-3 { @apply font-heading text-space-2xl uppercase }
+.preset-4 { @apply font-heading text-space-xl uppercase }
+.preset-5 { @apply text-space-blue-light text-space-lg tracking-space-xl uppercase }
+.preset-6 { @apply font-heading text-space-lg uppercase }
+.preset-7 { @apply text-space-xs tracking-space-xl uppercase }
+.preset-8 { @apply text-space-sm tracking-space-lg uppercase }
+.preset-9 { @apply text-space-md leading-space }

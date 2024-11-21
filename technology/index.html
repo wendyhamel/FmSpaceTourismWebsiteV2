@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" x-data="showContent()">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../src/output.css">
+
+	<script defer src="../src/site.js"></script>
+
+	<!-- Alpine Plugins -->
+	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+
+	<!-- Alpine Core -->
+	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+	<title x-text="'Space tourism - ' + currentPage"></title>
+	<base href="FmSpaceTourismWebsiteV2">
+</head>
+<body class="antialiased flex flex-col min-h-dvh" x-on:keydown.escape="mobileMenuOpened = false">
+<header class="relative z-10 p-6 md:p-0 lg:pt-10">
+	<nav class="flex justify-between items-center md:justify-start md:items-stretch md:gap-10 lg:pl-6 lg:gap-0">
+		<div class="shrink-0 flex items-center lg:grow lg:gap-6">
+			<a
+				href="../"
+				x-on:click="currentPage = Technology"
+				title="home"
+				class="size-10 md:size-auto md:my-6 md:ml-10 lg:shrink-0"
+			>
+				<img src="../assets/shared/logo.svg" alt="Space tourism website logo">
+			</a>
+			<div class="max-lg:hidden z-10 bg-white/25 h-px grow translate-x-8"></div>
+		</div>
+		<div class="md:hidden">
+			<button
+				type="button"
+				title="open the mobile menu"
+				x-on:click="mobileMenuOpened = true"
+			>
+				<img src="../assets/shared/icon-hamburger.svg" alt="">
+			</button>
+			<div
+				class="relative z-10"
+				aria-labelledby="mobile navigation menu"
+				role="dialog"
+				aria-modal="true"
+				x-show="mobileMenuOpened === true"
+				x-cloak
+			>
+				<div class="fixed inset-0 overflow-hidden">
+					<div class="absolute inset-0 overflow-hidden">
+						<div
+							class="pointer-events-none fixed inset-y-0 right-0 flex pl-[7.5625rem] min-w-64 max-w-full"
+							x-show="mobileMenuOpened === true"
+							x-on:click.outside="mobileMenuOpened = false"
+							x-cloak
+							x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+							x-transition:enter-start="translate-x-full"
+							x-transition:enter-end="translate-x-0"
+							x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+							x-transition:leave-start="translate-x-0"
+							x-transition:leave-end="translate-x-full"
+						>
+							<div class="pointer-events-auto w-screen max-w-md">
+								<div class="flex h-full flex-col overflow-y-auto backdrop-blur-2xl bg-space-blue-dark/15 text-white pt-7 pb-8 shadow-xl">
+									<div class="px-7">
+										<div class="flex items-start justify-end">
+											<div class="flex items-center">
+												<button
+													type="button"
+													class="relative focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+													x-on:click="mobileMenuOpened = false"
+													title="close the mobile menu"
+												>
+													<span class="absolute -inset-2.5"></span>
+													<span class="sr-only">Close menu</span>
+													<img src="../assets/shared/icon-close.svg"/>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="relative mt-8 flex-1 px-8 pt-12">
+										<div class="grid gap-7 place-items-start">
+											<template x-for="menuItem in menu">
+												<a
+													class="text-space-sm tracking-space-lg uppercase space-x-2 w-full border-r-[3px]"
+													:class="currentPage === menuItem.title ? 'border-r-white hover:border-r-space-blue-light' : 'border-r-transparent hover:border-r-white/50'"
+													:href="menuItem.href"
+													x-on:click="currentPage = menuItem.title"
+												>
+													<strong x-text="menuItem.number"></strong>
+													<span x-text="menuItem.title"></span>
+												</a>
+											</template>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="max-md:hidden bg-white/5 backdrop-blur-2xl grow text-white text-space-sm tracking-space-lg uppercase flex justify-end items-center gap-x-12 px-10 lg:grow-0 lg:pl-40">
+			<template x-for="menuItem in menu">
+				<a
+					:href="menuItem.href"
+					x-on:click="currentPage = menuItem.title"
+					class="h-full flex items-center gap-3 py-6 border-b-[3px]"
+					:class="currentPage === menuItem.title ? 'border-b-white hover:border-b-space-blue-light' : 'border-b-transparent hover:border-b-white/50'"
+				>
+					<span x-text="menuItem.number" class="font-bold"></span>
+					<span x-text="menuItem.title"></span>
+				</a>
+			</template>
+		</div>
+	</nav>
+</header>
+<main class="lg:mt-auto 2xl:my-auto">
+	<picture>
+		<source srcset="../assets/technology/background-technology-desktop.jpg" media="(min-width:1024px)">
+		<source srcset="../assets/technology/background-technology-tablet.jpg" media="(min-width: 640px)">
+		<img class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom" src="../assets/technology/background-technology-mobile.jpg" alt="">
+	</picture>
+	<section class="relative text-white px-6 py-4 md:pt-32 md:px-10 lg:pb-32 lg:px-16">
+		<h1>
+			<span>03</span>
+			<span>Space launch 101</span>
+		</h1>
+		<template x-for="tech in technology">
+			<picture>
+				<source :srcset="tech.images.portrait" media="(orientation: portrait)">
+				<img :src="tech.images.landscape" :alt="tech.name">
+			</picture>
+		</template>
+		<ul>
+			<template x-for="(tech, index) in technology">
+				<li>
+					<button>
+						<span x-text="index + 1"></span>
+						<span x-text="tech.name"></span>
+					</button>
+				</li>
+			</template>
+		</ul>
+		<template x-for="tech in technology">
+			<article class="flex flex-col gap-6 md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:px-8 lg:mx-auto">
+				<section class="space-y-6 md:space-y-7">
+					<h1
+						class="text-space-4xl font-heading uppercase text-center leading-none lg:text-start"
+						x-text="tech.name"
+					>
+					</h1>
+					<p
+						class="text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:text-start lg:mx-0 lg:pr-14"
+						x-text="tech.description"
+					>
+					</p>
+				</section>
+			</article>
+		</template>
+	</section>
+</main>
+<footer class="fixed bottom-0 inset-x-0 text-center text-white text-sm p-2 bg-space-blue-dark/90 opacity-0 translate-y-6 hover:opacity-100 hover:translate-y-0 focus-within:opacity-100 focus-within:translate-y-0 transform transition ease-in-out duration-300">
+	Challenge by <a class="text-space-blue-light hover:underline" href="https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3" target="_blank">Frontend Mentor</a>.
+	Coded by <a class="text-space-blue-light hover:underline" href="https://www.frontendmentor.io/profile/wendyhamel" target="_blank">Wendy Hamel</a>.
+</footer>
+</body>
+</html>
