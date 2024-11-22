@@ -122,23 +122,23 @@
 		</div>
 	</nav>
 </header>
-<main>
+<main class="md:p-4">
 	<picture>
 		<source srcset="../assets/destination/background-destination-desktop.jpg" media="(min-width:1024px)">
 		<source srcset="../assets/destination/background-destination-tablet.jpg" media="(min-width: 640px)">
 		<img class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom" src="../assets/destination/background-destination-mobile.jpg" alt="">
 	</picture>
 	<section class="relative text-white p-6">
-		<h1 class="text-center space-x-5">
-			<span class="uppercase font-bold text-white/25 tracking-space-lg">01</span>
-			<span class="tracking-space-xl uppercase md:text-space-xl">Pick your destination</span>
+		<h1 class="text-center space-x-5 md:text-start">
+			<span class="uppercase font-bold text-white/25 tracking-space-lg md:text-space-md">01</span>
+			<span class="tracking-space-xl uppercase md:text-space-md">Pick your destination</span>
 		</h1>
 		<section class="grid place-items-center my-12 pt-0.5">
 			<template x-for="(destination, index) in destinations">
 				<div
 					x-show="activeDestination === index"
 					x-cloak
-					class="col-start-1 col-span-1 row-start-1 row-span-1 max-w-40 px-[0,3125rem]"
+					class="col-start-1 col-span-1 row-start-1 row-span-1 max-w-40 px-[0,3125rem] md:max-w-80 md:px-2.5"
 				>
 					<picture>
 						<source :srcset="destination.images.png" type="image/png">

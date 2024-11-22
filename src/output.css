@@ -1321,6 +1321,10 @@ video {
     height: auto;
   }
 
+  .md\:max-w-80 {
+    max-width: 20rem;
+  }
+
   .md\:items-stretch {
     align-items: stretch;
   }
@@ -1343,9 +1347,43 @@ video {
     padding: 0px;
   }
 
+  .md\:p-4 {
+    padding: 1rem;
+  }
+
   .md\:px-10 {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+
+  .md\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .md\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .md\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .md\:px-2\.5 {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 
   .md\:pt-12 {
@@ -1356,12 +1394,24 @@ video {
     padding-top: 8rem;
   }
 
+  .md\:text-start {
+    text-align: start;
+  }
+
   .md\:text-space-3xl {
     font-size: 6.25rem;
   }
 
   .md\:text-space-xl {
     font-size: 2rem;
+  }
+
+  .md\:text-space-lg {
+    font-size: 1.75rem;
+  }
+
+  .md\:text-space-md {
+    font-size: 1.2rem;
   }
 
   .md\:leading-space {
