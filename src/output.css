@@ -646,10 +646,6 @@ video {
   margin-bottom: 3rem;
 }
 
-.mt-12 {
-  margin-top: 3rem;
-}
-
 .mt-8 {
   margin-top: 2rem;
 }
@@ -800,6 +796,10 @@ video {
   gap: 1.75rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
 .gap-x-12 {
   -moz-column-gap: 3rem;
        column-gap: 3rem;
@@ -815,6 +815,18 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
   margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -843,12 +855,12 @@ video {
   border-right-width: 3px;
 }
 
-.border-b-\[3px\] {
-  border-bottom-width: 3px;
+.border-t {
+  border-top-width: 1px;
 }
 
-.border-r-\[3px\] {
-  border-right-width: 3px;
+.border-white\/25 {
+  border-color: rgb(255 255 255 / 0.25);
 }
 
 .border-b-transparent {
@@ -942,6 +954,10 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -954,6 +970,10 @@ video {
   padding-top: 0.125rem;
 }
 
+.pt-1\.5 {
+  padding-top: 0.375rem;
+}
+
 .pt-12 {
   padding-top: 3rem;
 }
@@ -962,12 +982,12 @@ video {
   padding-top: 5rem;
 }
 
-.pt-7 {
-  padding-top: 1.75rem;
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
-.pb-2 {
-  padding-bottom: 0.5rem;
+.pt-7 {
+  padding-top: 1.75rem;
 }
 
 .text-center {
@@ -983,15 +1003,23 @@ video {
   line-height: 1.25rem;
 }
 
-.text-space-4xl {
+.text-space-4xl-res {
   font-size: min(max(5.125rem,20vw),9rem);
 }
 
 .text-space-lg {
+  font-size: 1.75rem;
+}
+
+.text-space-lg-res {
   font-size: min(max(1rem,4vw),1.75rem);
 }
 
 .text-space-md {
+  font-size: 1.2rem;
+}
+
+.text-space-md-res {
   font-size: min(max(1rem,4.8vw),1.2rem);
 }
 
@@ -1000,7 +1028,19 @@ video {
 }
 
 .text-space-xl {
+  font-size: 2rem;
+}
+
+.text-space-xl-res {
   font-size: min(max(1.125rem,4vw),2rem);
+}
+
+.text-space-xs {
+  font-size: 0.875rem;
+}
+
+.text-space-2xl {
+  font-size: 3.5rem;
 }
 
 .font-bold {
@@ -1107,7 +1147,7 @@ video {
 
 .preset-1 {
   font-family: Bellefair, sans-serif;
-  font-size: min(max(5.125rem,20vw),9rem);
+  font-size: 9rem;
   text-transform: uppercase;
 }
 
@@ -1125,12 +1165,12 @@ video {
 
 .preset-4 {
   font-family: Bellefair, sans-serif;
-  font-size: min(max(1.125rem,4vw),2rem);
+  font-size: 2rem;
   text-transform: uppercase;
 }
 
 .preset-5 {
-  font-size: min(max(1rem,4vw),1.75rem);
+  font-size: 1.75rem;
   text-transform: uppercase;
   letter-spacing: 0.143em;
   --tw-text-opacity: 1;
@@ -1139,7 +1179,7 @@ video {
 
 .preset-6 {
   font-family: Bellefair, sans-serif;
-  font-size: min(max(1rem,4vw),1.75rem);
+  font-size: 1.75rem;
   text-transform: uppercase;
 }
 
@@ -1156,7 +1196,7 @@ video {
 }
 
 .preset-9 {
-  font-size: min(max(1rem,4.8vw),1.2rem);
+  font-size: 1.2rem;
   line-height: 2.025rem;
 }
 
@@ -1314,6 +1354,14 @@ video {
 
   .md\:pt-32 {
     padding-top: 8rem;
+  }
+
+  .md\:text-space-3xl {
+    font-size: 6.25rem;
+  }
+
+  .md\:text-space-xl {
+    font-size: 2rem;
   }
 
   .md\:leading-space {

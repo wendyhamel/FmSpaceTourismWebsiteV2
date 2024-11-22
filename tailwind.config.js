@@ -14,12 +14,17 @@ module.exports = {
             }
         },
         fontSize: {
-            'space-4xl': 'min(max(5.125rem,20vw),9rem)', // preset 1
+            'space-4xl': '9rem', // preset 1
+            'space-4xl-res': 'min(max(5.125rem,20vw),9rem)', // preset 1 responsive
             'space-3xl': '6.25rem', // preset 2
+            'space-3xl-res': 'min(max(3rem,15vw),6.25rem)', // preset 2 responsive
             'space-2xl': '3.5rem', // preset 3
-            'space-xl': 'min(max(1.125rem,4vw),2rem)', // preset 4
-            'space-lg': 'min(max(1rem,4vw),1.75rem)', // preset 5 & preset 6
-        'space-md': 'min(max(1rem,4.8vw),1.2rem)', // preset 9
+            'space-xl': '2rem', // preset 4
+            'space-xl-res': 'min(max(1.125rem,4vw),2rem)', // preset 4 responsive
+            'space-lg': '1.75rem', // preset 5 & preset 6
+            'space-lg-res': 'min(max(1rem,4vw),1.75rem)', // preset 5 & preset 6 responsive
+            'space-md': '1.2rem', // preset 9
+            'space-md-res': 'min(max(1rem,4.8vw),1.2rem)', // preset 9 responsive
             'space-sm': '1rem', // preset 8
             'space-xs': '0.875rem', // preset 7
         },

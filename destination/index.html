@@ -131,7 +131,7 @@
 	<section class="relative text-white p-6">
 		<h1 class="text-center space-x-5">
 			<span class="uppercase font-bold text-white/25 tracking-space-lg">01</span>
-			<span class="text-space-lg uppercase tracking-space-xl">Pick your destination</span>
+			<span class="tracking-space-xl uppercase md:text-space-xl">Pick your destination</span>
 		</h1>
 		<section class="grid place-items-center my-12 pt-0.5">
 			<template x-for="(destination, index) in destinations">
@@ -147,14 +147,18 @@
 				</div>
 			</template>
 		</section>
-		<ul class="flex items-center gap-6 justify-center">
+		<ul class="flex items-center gap-8 justify-center">
 			<template x-for="(destination, index) in destinations">
-				<li class="border-b-3 pb-2">
+				<li
+					class="border-b-3 pb-2"
+					:class="activeDestination === index ? 'border-b-white hover:border-b-space-blue-light' : 'border-b-transparent hover:border-b-white/50'"
+				>
 					<button
 						type="button"
 						x-on:click="activeDestination = index"
 						x-text="destination.name"
-						class="uppercase tracking-space-xl"
+						class="text-space-xs tracking-space-xl uppercase"
+						:class="activeDestination === index ? 'text-white hover:border-b-space-blue-light' : 'text-space-blue-li'"
 					></button>
 				</li>
 			</template>
@@ -163,19 +167,19 @@
 			<article
 				x-show="activeDestination === index"
 				x-cloak
-				class="flex flex-col gap-6 md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:px-8 lg:mx-auto"
+				class="flex flex-col gap-6 mt-8"
 			>
-				<section class="space-y-6 md:space-y-7">
-			        <span class="block text-space-lg tracking-space-xl uppercase text-space-blue-light text-center lg:text-start" x-text="destination.name">
-			        </span>
-					<h2 class="text-space-4xl font-heading uppercase text-center leading-none lg:text-start" x-text="destination.name">
+				<section class="space-y-5">
+					<h2 class="font-heading text-space-2xl uppercase text-center leading-none px-10 md:text-space-3xl lg:text-start" x-text="destination.name">
 					</h2>
 					<p class="text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:text-start lg:mx-0 lg:pr-14" x-text="destination.description">
 					</p>
 				</section>
-				<section class="pt-20 md:pt-12 lg:pt-0 lg:flex lg:justify-end">
-					<span x-text="destination.distance"></span>
-					<span x-text="destination.travel"></span>
+				<section class="pt-5 border-t border-white/25 text-center space-y-2">
+					<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Avg. distance</p>
+					<p class="font-heading text-space-lg uppercase" x-text="destination.distance"></p>
+					<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light pt-1.5">Est. travel time</p>
+					<p class="font-heading text-space-lg uppercase" x-text="destination.travel"></p>
 				</section>
 			</article>
 		</template>
