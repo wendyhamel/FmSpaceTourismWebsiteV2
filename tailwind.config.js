@@ -46,6 +46,9 @@ module.exports = {
             80: '20rem', // for 80 use tw class -> 20
             96: '24rem', // for 96 use tw class -> 24
             128: '32rem', // for 128 use tw class -> 32
+        },
+        borderWidth: {
+            '3': '3px'
         }
     },
   },

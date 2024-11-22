@@ -83,7 +83,7 @@
                     <div class="grid gap-7 place-items-start">
                       <template x-for="menuItem in menu">
                         <a
-                            class="text-space-sm tracking-space-lg uppercase space-x-2 w-full border-r-[3px]"
+                            class="text-space-sm tracking-space-lg uppercase space-x-2 w-full border-r-3"
                             :class="currentPage === menuItem.title ? 'border-r-white hover:border-r-space-blue-light' : 'border-r-transparent hover:border-r-white/50'"
                             :href="menuItem.href"
                             x-on:click="currentPage = menuItem.title"
@@ -106,7 +106,7 @@
         <a
             :href="menuItem.href"
             x-on:click="currentPage = menuItem.title"
-            class="h-full flex items-center gap-3 py-6 border-b-[3px]"
+            class="h-full flex items-center gap-3 py-6 border-b-3"
             :class="currentPage === menuItem.title ? 'border-b-white hover:border-b-space-blue-light' : 'border-b-transparent hover:border-b-white/50'"
         >
           <span x-text="menuItem.number" class="font-bold"></span>

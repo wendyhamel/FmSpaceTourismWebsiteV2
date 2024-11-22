@@ -56,16 +56,16 @@
 				<div class="fixed inset-0 overflow-hidden">
 					<div class="absolute inset-0 overflow-hidden">
 						<div
-								class="pointer-events-none fixed inset-y-0 right-0 flex pl-[7.5625rem] min-w-64 max-w-full"
-								x-show="mobileMenuOpened === true"
-								x-on:click.outside="mobileMenuOpened = false"
-								x-cloak
-								x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
-								x-transition:enter-start="translate-x-full"
-								x-transition:enter-end="translate-x-0"
-								x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
-								x-transition:leave-start="translate-x-0"
-								x-transition:leave-end="translate-x-full"
+							class="pointer-events-none fixed inset-y-0 right-0 flex pl-[7.5625rem] min-w-64 max-w-full"
+							x-show="mobileMenuOpened === true"
+							x-on:click.outside="mobileMenuOpened = false"
+							x-cloak
+							x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+							x-transition:enter-start="translate-x-full"
+							x-transition:enter-end="translate-x-0"
+							x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+							x-transition:leave-start="translate-x-0"
+							x-transition:leave-end="translate-x-full"
 						>
 							<div class="pointer-events-auto w-screen max-w-md">
 								<div class="flex h-full flex-col overflow-y-auto backdrop-blur-2xl bg-space-blue-dark/15 text-white pt-7 pb-8 shadow-xl">
@@ -73,10 +73,10 @@
 										<div class="flex items-start justify-end">
 											<div class="flex items-center">
 												<button
-														type="button"
-														class="relative focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-														x-on:click="mobileMenuOpened = false"
-														title="close the mobile menu"
+													type="button"
+													class="relative focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+													x-on:click="mobileMenuOpened = false"
+													title="close the mobile menu"
 												>
 													<span class="absolute -inset-2.5"></span>
 													<span class="sr-only">Close menu</span>
@@ -89,10 +89,10 @@
 										<div class="grid gap-7 place-items-start">
 											<template x-for="menuItem in menu">
 												<a
-														class="text-space-sm tracking-space-lg uppercase space-x-2 w-full border-r-[3px]"
-														:class="currentPage === menuItem.title ? 'border-r-white hover:border-r-space-blue-light' : 'border-r-transparent hover:border-r-white/50'"
-														:href="menuItem.href"
-														x-on:click="currentPage = menuItem.title"
+													class="text-space-sm tracking-space-lg uppercase space-x-2 w-full border-r-3"
+													:class="currentPage === menuItem.title ? 'border-r-white hover:border-r-space-blue-light' : 'border-r-transparent hover:border-r-white/50'"
+													:href="menuItem.href"
+													x-on:click="currentPage = menuItem.title"
 												>
 													<strong x-text="menuItem.number"></strong>
 													<span x-text="menuItem.title"></span>
@@ -112,7 +112,7 @@
 				<a
 					:href="menuItem.href"
 					x-on:click="currentPage = menuItem.title"
-					class="h-full flex items-center gap-3 py-6 border-b-[3px]"
+					class="h-full flex items-center gap-3 py-6 border-b-3"
 					:class="currentPage === menuItem.title ? 'border-b-white hover:border-b-space-blue-light' : 'border-b-transparent hover:border-b-white/50'"
 				>
 					<span x-text="menuItem.number" class="font-bold"></span>
@@ -128,31 +128,48 @@
 		<source srcset="../assets/destination/background-destination-tablet.jpg" media="(min-width: 640px)">
 		<img class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom" src="../assets/destination/background-destination-mobile.jpg" alt="">
 	</picture>
-	<section class="relative text-white px-6 py-4">
-		<h1>
-			<span>01</span>
-			<span>Pick your destination</span>
+	<section class="relative text-white p-6">
+		<h1 class="text-center space-x-5">
+			<span class="uppercase font-bold text-white/25 tracking-space-lg">01</span>
+			<span class="text-space-lg uppercase tracking-space-xl">Pick your destination</span>
 		</h1>
-		<template x-for="destination in destinations">
-			<picture>
-				<source :srcset="destination.images.png" type="image/png">
-				<img :src="destination.images.webp" :alt="destination.name">
-			</picture>
-		</template>
-		<ul>
-			<template x-for="destination in destinations">
-				<li>
-					<button x-text="destination.name"></button>
+		<section class="grid place-items-center my-12 pt-0.5">
+			<template x-for="(destination, index) in destinations">
+				<div
+					x-show="activeDestination === index"
+					x-cloak
+					class="col-start-1 col-span-1 row-start-1 row-span-1 max-w-40 px-[0,3125rem]"
+				>
+					<picture>
+						<source :srcset="destination.images.png" type="image/png">
+						<img :src="destination.images.webp" :alt="destination.name">
+					</picture>
+				</div>
+			</template>
+		</section>
+		<ul class="flex items-center gap-6 justify-center">
+			<template x-for="(destination, index) in destinations">
+				<li class="border-b-3 pb-2">
+					<button
+						type="button"
+						x-on:click="activeDestination = index"
+						x-text="destination.name"
+						class="uppercase tracking-space-xl"
+					></button>
 				</li>
 			</template>
 		</ul>
-		<template x-for="destination in destinations">
-			<article class="flex flex-col gap-6 md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:px-8 lg:mx-auto">
+		<template x-for="(destination, index) in destinations">
+			<article
+				x-show="activeDestination === index"
+				x-cloak
+				class="flex flex-col gap-6 md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:px-8 lg:mx-auto"
+			>
 				<section class="space-y-6 md:space-y-7">
 			        <span class="block text-space-lg tracking-space-xl uppercase text-space-blue-light text-center lg:text-start" x-text="destination.name">
 			        </span>
-					<h1 class="text-space-4xl font-heading uppercase text-center leading-none lg:text-start" x-text="destination.name">
-					</h1>
+					<h2 class="text-space-4xl font-heading uppercase text-center leading-none lg:text-start" x-text="destination.name">
+					</h2>
 					<p class="text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:text-start lg:mx-0 lg:pr-14" x-text="destination.description">
 					</p>
 				</section>
