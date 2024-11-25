@@ -122,7 +122,7 @@
 		</div>
 	</nav>
 </header>
-<main class="md:p-4">
+<main class="md:px-4 md:pt-3.5 md:mb-6">
 	<picture>
 		<source srcset="../assets/destination/background-destination-desktop.jpg" media="(min-width:1024px)">
 		<source srcset="../assets/destination/background-destination-tablet.jpg" media="(min-width: 640px)">
@@ -131,9 +131,9 @@
 	<section class="relative text-white p-6">
 		<h1 class="text-center space-x-5 md:text-start">
 			<span class="uppercase font-bold text-white/25 tracking-space-lg md:text-space-md">01</span>
-			<span class="tracking-space-xl uppercase md:text-space-md">Pick your destination</span>
+			<span class="tracking-space-xl uppercase md:text-space-md md:tracking-space-2xl">Pick your destination</span>
 		</h1>
-		<section class="grid place-items-center my-12 pt-0.5">
+		<section class="grid place-items-center my-12 pt-0.5 md:pt-0 md:my-16">
 			<template x-for="(destination, index) in destinations">
 				<div
 					x-show="activeDestination === index"
@@ -147,7 +147,7 @@
 				</div>
 			</template>
 		</section>
-		<ul class="flex items-center gap-8 justify-center">
+		<ul class="flex items-center gap-8 justify-center md:pt-3.5 md:gap-7">
 			<template x-for="(destination, index) in destinations">
 				<li
 					class="border-b-3 pb-2"
@@ -157,8 +157,8 @@
 						type="button"
 						x-on:click="activeDestination = index"
 						x-text="destination.name"
-						class="text-space-xs tracking-space-xl uppercase"
-						:class="activeDestination === index ? 'text-white hover:border-b-space-blue-light' : 'text-space-blue-li'"
+						class="text-space-xs tracking-space-xl uppercase md:text-space-sm"
+						:class="activeDestination === index ? 'text-white hover:border-b-space-blue-light' : 'text-space-blue-light'"
 					></button>
 				</li>
 			</template>
@@ -167,19 +167,23 @@
 			<article
 				x-show="activeDestination === index"
 				x-cloak
-				class="flex flex-col gap-6 mt-8"
+				class="flex flex-col gap-6 mt-8 md:max-w-[32.125rem] md:mx-auto"
 			>
 				<section class="space-y-5">
-					<h2 class="font-heading text-space-2xl uppercase text-center leading-none px-10 md:text-space-3xl lg:text-start" x-text="destination.name">
+					<h2 class="font-heading text-space-2xl uppercase text-center leading-none px-10 md:text-[5rem] lg:text-start" x-text="destination.name">
 					</h2>
 					<p class="text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:text-start lg:mx-0 lg:pr-14" x-text="destination.description">
 					</p>
 				</section>
-				<section class="pt-5 border-t border-white/25 text-center space-y-2">
-					<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Avg. distance</p>
-					<p class="font-heading text-space-lg uppercase" x-text="destination.distance"></p>
-					<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light pt-1.5">Est. travel time</p>
-					<p class="font-heading text-space-lg uppercase" x-text="destination.travel"></p>
+				<section class="pt-5 border-t border-white/25 text-center grid gap-y-1.5 md:grid-cols-2 md:gap-y-0">
+					<div class="space-y-2">
+						<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Avg. distance</p>
+						<p class="font-heading text-space-lg uppercase" x-text="destination.distance"></p>
+					</div>
+					<div class="space-y-2">
+						<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Est. travel time</p>
+						<p class="font-heading text-space-lg uppercase" x-text="destination.travel"></p>
+					</div>
 				</section>
 			</article>
 		</template>

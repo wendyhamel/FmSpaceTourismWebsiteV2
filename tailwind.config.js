@@ -31,6 +31,7 @@ module.exports = {
         letterSpacing: {
             'space-lg': '0.125em', // preset 5 & preset 8
             'space-xl': '0.143em', // preset 7
+            'space-2xl': '0.175em'
         },
         lineHeight: {
             'space': '2.025rem', // preset 9
