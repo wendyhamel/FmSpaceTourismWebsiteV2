@@ -122,71 +122,73 @@
 		</div>
 	</nav>
 </header>
-<main class="md:px-4 md:pt-3.5 md:mb-6">
+<main class="md:px-4 md:pt-3.5 md:mb-6 xl:pt-5">
 	<picture>
 		<source srcset="../assets/destination/background-destination-desktop.jpg" media="(min-width:1024px)">
 		<source srcset="../assets/destination/background-destination-tablet.jpg" media="(min-width: 640px)">
 		<img class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom" src="../assets/destination/background-destination-mobile.jpg" alt="">
 	</picture>
-	<section class="relative text-white p-6 lg:grid md:grid-cols-2">
-		<h1 class="text-center space-x-5 md:text-start lg:col-span-full">
-			<span class="uppercase font-bold text-white/25 tracking-space-lg md:text-space-md">01</span>
-			<span class="tracking-space-xl uppercase md:text-space-md md:tracking-space-2xl">Pick your destination</span>
+	<section class="relative text-white p-6 lg:grid md:grid-cols-2 xl:max-w-6xl xl:mx-auto">
+		<h1 class="text-center space-x-5 lg:text-start lg:col-span-full lg:pb-12 xl:pb-36">
+			<span class="uppercase font-bold text-white/25 tracking-space-lg md:text-space-md xl:text-space-lg">01</span>
+			<span class="tracking-space-xl uppercase md:text-space-md md:tracking-space-2xl xl:text-space-lg xl:tracking-space-lg">Pick your destination</span>
 		</h1>
-		<section class="grid place-items-center my-12 pt-0.5 md:pt-0 md:my-16 lg:col-start-1 lg:row-start-2 lg:row-span-2">
+		<section class="grid place-items-center my-12 pt-0.5 md:pt-0 md:my-16 lg:col-start-1 xl:my-0">
 			<template x-for="(destination, index) in destinations">
 				<div
 					x-show="activeDestination === index"
 					x-cloak
-					class="col-start-1 col-span-1 row-start-1 row-span-1 max-w-40 px-[0,3125rem] md:max-w-80 md:px-2.5"
+					class="col-start-1 col-span-1 row-start-1 row-span-1 w-[150px] md:w-[300px] xl:w-[480px]"
 				>
 					<picture>
 						<source :srcset="destination.images.png" type="image/png">
-						<img :src="destination.images.webp" :alt="destination.name">
+						<img class="w-full h-auto" :src="destination.images.webp" :alt="destination.name">
 					</picture>
 				</div>
 			</template>
 		</section>
-		<ul class="flex items-center gap-8 justify-center md:pt-3.5 md:gap-7 lg:col-start-2 lg-row-start-2">
+		<section class="md:pt-3.5 lg:col-start-2 xl:pt-0 xl:pl-16">
+			<ul class="flex items-center gap-8 justify-center md:gap-7 lg:justify-start">
+				<template x-for="(destination, index) in destinations">
+					<li
+						class="border-b-3 pb-2"
+						:class="activeDestination === index ? 'border-b-white hover:border-b-space-blue-light' : 'border-b-transparent hover:border-b-white/50'"
+					>
+						<button
+							type="button"
+							x-on:click="activeDestination = index"
+							x-text="destination.name"
+							class="text-space-xs tracking-space-xl uppercase md:text-space-sm"
+							:class="activeDestination === index ? 'text-white hover:border-b-space-blue-light' : 'text-space-blue-light'"
+						></button>
+					</li>
+				</template>
+			</ul>
 			<template x-for="(destination, index) in destinations">
-				<li
-					class="border-b-3 pb-2"
-					:class="activeDestination === index ? 'border-b-white hover:border-b-space-blue-light' : 'border-b-transparent hover:border-b-white/50'"
+				<article
+					x-show="activeDestination === index"
+					x-cloak
+					class="flex flex-col gap-6 mt-8 md:max-w-[32.125rem] md:mx-auto lg:mx-0 xl:mt-12 xl:gap-10"
 				>
-					<button
-						type="button"
-						x-on:click="activeDestination = index"
-						x-text="destination.name"
-						class="text-space-xs tracking-space-xl uppercase md:text-space-sm"
-						:class="activeDestination === index ? 'text-white hover:border-b-space-blue-light' : 'text-space-blue-light'"
-					></button>
-				</li>
+					<section class="space-y-5">
+						<h2 class="font-heading text-space-2xl uppercase text-center leading-none px-10 md:text-[5rem] lg:text-start lg:px-0 xl:text-space-3xl" x-text="destination.name">
+						</h2>
+						<p class="text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:tracking-space-md lg:text-start lg:mx-0 lg:pr-14" x-text="destination.description">
+						</p>
+					</section>
+					<section class="pt-5 border-t border-white/25 text-center grid gap-y-1.5 md:grid-cols-2 md:gap-y-0 lg:text-start lg:pt-10">
+						<div class="space-y-2">
+							<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Avg. distance</p>
+							<p class="font-heading text-space-lg uppercase" x-text="destination.distance"></p>
+						</div>
+						<div class="space-y-2">
+							<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Est. travel time</p>
+							<p class="font-heading text-space-lg uppercase" x-text="destination.travel"></p>
+						</div>
+					</section>
+				</article>
 			</template>
-		</ul>
-		<template x-for="(destination, index) in destinations">
-			<article
-				x-show="activeDestination === index"
-				x-cloak
-				class="flex flex-col gap-6 mt-8 md:max-w-[32.125rem] md:mx-auto lg:col-start-2 lg:row-start-3"
-			>
-				<section class="space-y-5">
-					<h2 class="font-heading text-space-2xl uppercase text-center leading-none px-10 md:text-[5rem] lg:text-start" x-text="destination.name">
-					</h2>
-					<p class="text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:text-start lg:mx-0 lg:pr-14" x-text="destination.description">
-					</p>
-				</section>
-				<section class="pt-5 border-t border-white/25 text-center grid gap-y-1.5 md:grid-cols-2 md:gap-y-0">
-					<div class="space-y-2">
-						<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Avg. distance</p>
-						<p class="font-heading text-space-lg uppercase" x-text="destination.distance"></p>
-					</div>
-					<div class="space-y-2">
-						<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Est. travel time</p>
-						<p class="font-heading text-space-lg uppercase" x-text="destination.travel"></p>
-					</div>
-				</section>
-			</article>
-		</template>
+		</section>
 	</section>
 </main>
 <footer class="fixed bottom-0 inset-x-0 text-center text-white text-sm p-2 bg-space-blue-dark/90 opacity-0 translate-y-6 hover:opacity-100 hover:translate-y-0 focus-within:opacity-100 focus-within:translate-y-0 transform transition ease-in-out duration-300">

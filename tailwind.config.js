@@ -29,6 +29,7 @@ module.exports = {
             'space-xs': '0.875rem', // preset 7
         },
         letterSpacing: {
+            'space-md': '0.06em',
             'space-lg': '0.125em', // preset 5 & preset 8
             'space-xl': '0.143em', // preset 7
             'space-2xl': '0.175em'
