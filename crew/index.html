@@ -122,24 +122,24 @@
 		</div>
 	</nav>
 </header>
-<main class="md:px-4 md:pt-3.5 xl:pt-5">
+<main class="md:px-4 md:pt-3.5 xl:pt-5 xl:grow xl:flex xl:flex-col xl:pb-20">
 	<picture>
 		<source srcset="../assets/crew/background-crew-desktop.jpg" media="(min-width:1024px)">
 		<source srcset="../assets/crew/background-crew-tablet.jpg" media="(min-width: 640px)">
 		<img class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom" src="../assets/crew/background-crew-mobile.jpg" alt="">
 	</picture>
-	<section class="relative text-white p-6 lg:grid md:grid-cols-2 md:pb-0 xl:max-w-6xl xl:mx-auto">
-		<h1 class="text-center space-x-5 md:text-start lg:col-span-full lg:pb-12 xl:pb-36">
+	<section class="relative text-white p-6 md:pb-0 xl:max-w-6xl xl:mx-auto xl:mb-4 xl:grow xl:flex xl:flex-col">
+		<h1 class="text-center space-x-5 md:text-start lg:pb-4 xl:grow">
 			<span class="uppercase font-bold text-white/25 tracking-space-lg md:text-space-md xl:text-space-lg">02</span>
 			<span class="tracking-space-xl uppercase md:text-space-md md:tracking-space-2xl xl:text-space-lg xl:tracking-space-lg">Meet your crew</span>
 		</h1>
-		<section class="grid place-items-center mt-12 pt-2 md:pt-0 lg:col-start-1 xl:my-0">
-			<section class="md:pt-3.5 lg:col-start-2 xl:pt-0 xl:pl-16">
+		<section class="relative lg:grid md:grid-cols-2">
+			<section class="mt-12 pt-2 md:pt-0 lg:col-start-1 xl:flex xl:flex-col xl:pt-0 xl:mt-0 xl:pb-4">
 				<template x-for="(member, index) in crew">
 					<article
 						x-show="activeCrewMember === index"
 						x-cloak
-						class="flex flex-col gap-6 md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:px-8 lg:mx-auto"
+						class="flex flex-col gap-6 md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:mx-auto xl:grow"
 					>
 						<section class="space-y-1 md:space-y-4">
 					        <span
@@ -148,39 +148,40 @@
 					        >
 					        </span>
 							<h1
-								class="pb-6 font-heading text-space-lg uppercase text-center leading-none md:text-[2.5rem] md:pb-3 lg:text-start xl:text-space-3xl"
+								class="pb-6 font-heading text-space-lg uppercase text-center leading-none md:text-[2.5rem] md:pb-3 lg:text-start xl:text-space-2xl"
 								x-text="member.name"
 							>
 							</h1>
 							<p
-								class="text-space-md-res tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:tracking-space-md lg:text-start lg:mx-0 lg:pr-14"
+								class="text-space-md-res tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:tracking-space-md lg:text-start lg:mx-0"
 								x-text="member.bio"
 							>
 							</p>
 						</section>
 					</article>
 				</template>
-				<ul class="flex gap-4 justify-center mt-16 md:mt-8">
+				<ul class="flex gap-4 justify-center mt-16 md:mt-8 xl:justify-start xl:gap-10">
 					<template x-for="(member, index) in crew">
 						<li>
 							<button
 								type="button"
 						        x-on:click="activeCrewMember = index"
-						        class="shrink-0 size-2.5 rounded-full lg:size-[0.9375rem]"
+						        class="relative shrink-0 size-2.5 rounded-full lg:size-[0.9375rem] xl:grid xl:place-content-center"
 					            :class="activeCrewMember === index ? 'bg-white hover:bg-white/50' : 'bg-white/[17%]'"
 							>
 								<span class="sr-only" x-text="member.name"></span>
+								<span class="max-lg:hidden block size-8 cursor-pointer"></span>
 							</button>
 						</li>
 					</template>
 				</ul>
 			</section>
-			<section class="grid place-items-center mt-8 mx-10 md:overflow-hidden md:mx-36 lg:col-start-1 xl:my-0">
+			<section class="grid place-items-center mt-8 mx-10 md:overflow-hidden md:mx-36 lg:col-start-2 xl:mt-0 xl:ml-12 xl:mr-auto">
 				<template x-for="(member, index) in crew">
 					<div
 						x-show="activeCrewMember === index"
 						x-cloak
-						class="relative col-start-1 col-span-1 row-start-1 row-span-1 after:absolute after:bottom-0 after:inset-x-0 after:h-1/4 after:bg-gradient-to-t after:from-space-blue-dark md:translate-y-12 md:-mt-12"
+						class="relative col-start-1 col-span-1 row-start-1 row-span-1 after:absolute after:bottom-0 after:inset-x-0 after:h-1/4 after:bg-gradient-to-t after:from-space-blue-dark md:translate-y-12 md:-mt-12 xl:translate-y-0 xl:mt-0"
 					>
 						<picture>
 							<source :srcset="member.images.png" type="image/png">
