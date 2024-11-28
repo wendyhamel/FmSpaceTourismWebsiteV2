@@ -153,7 +153,7 @@
 							>
 							</h1>
 							<p
-								class="text-space-md-res tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:text-start lg:mx-0 xl:tracking-space-md "
+								class="text-space-md-res tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:text-start lg:mx-0 xl:tracking-space-md"
 								x-text="member.bio"
 							>
 							</p>
@@ -167,7 +167,7 @@
 								type="button"
 						        x-on:click="activeCrewMember = index"
 						        class="relative shrink-0 size-2.5 rounded-full lg:size-[0.9375rem] lg:grid lg:place-content-center"
-					            :class="activeCrewMember === index ? 'bg-white hover:bg-white/50' : 'bg-white/[17%]'"
+					            :class="activeCrewMember === index ? 'bg-white' : 'bg-white/[17%] hover:bg-white/50'"
 							>
 								<span class="sr-only" x-text="member.name"></span>
 								<span class="max-lg:hidden block size-8 cursor-pointer"></span>
