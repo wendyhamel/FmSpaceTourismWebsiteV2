@@ -41,6 +41,12 @@ module.exports = {
         },
         borderWidth: {
             '3': '3px'
+        },
+        transitionDuration: {
+          '2000': '2000ms'
+        },
+        transitionTimingFunction: {
+            'space': 'cubic-bezier(.38, .48, .48, .40)'
         }
     },
   },

@@ -130,6 +130,7 @@ window.showContent = function () {
 		],
 		mobileMenuOpened: false,
 		currentPage: Alpine.$persist('Home'),
+		loadPage: false,
 		activeDestination: 0,
 		activeCrewMember: 0,
 		activeTechnology: 0,

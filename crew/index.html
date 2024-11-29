@@ -16,6 +16,7 @@
 
 	<!-- Alpine Plugins -->
 	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 
 	<!-- Alpine Core -->
 	<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -23,7 +24,7 @@
 	<title x-text="'Space tourism - ' + currentPage"></title>
 	<base href="FmSpaceTourismWebsiteV2">
 </head>
-<body class="antialiased flex flex-col min-h-dvh" x-on:keydown.escape="mobileMenuOpened = false">
+<body class="antialiased flex flex-col min-h-dvh bg-space-blue-dark" x-on:keydown.escape="mobileMenuOpened = false">
 <header class="relative z-10 p-6 md:p-0 lg:pt-10">
 	<nav class="flex justify-between items-center md:justify-start md:items-stretch md:gap-10 lg:pl-6 lg:gap-0">
 		<div class="shrink-0 flex items-center lg:grow lg:gap-6">
@@ -122,11 +123,22 @@
 		</div>
 	</nav>
 </header>
-<main class="md:px-4 md:pt-3.5 lg:pt-5 lg:grow lg:flex lg:flex-col xl:pb-20">
+<main
+	class="md:px-4 md:pt-3.5 lg:pt-5 lg:grow lg:flex lg:flex-col xl:pb-20"
+	x-intersect="loadPage = true"
+>
 	<picture>
 		<source srcset="../assets/crew/background-crew-desktop.jpg" media="(min-width:1024px)">
 		<source srcset="../assets/crew/background-crew-tablet.jpg" media="(min-width: 640px)">
-		<img class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom" src="../assets/crew/background-crew-mobile.jpg" alt="">
+		<img
+			class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom"
+			src="../assets/crew/background-crew-mobile.jpg"
+			alt="image of earths surface with dramatic clouds from space"
+			x-show="loadPage === true"
+			x-transition:enter="transform transition ease-space duration-2000 origin-top-left md:origin-bottom-left"
+			x-transition:enter-start="scale-110 rotate-1 opacity-0"
+			x-transition:enter-end="scale-full rotate-0 opacity-100"
+		>
 	</picture>
 	<section class="relative text-white p-6 md:pb-0 lg:grow lg:flex lg:flex-col xl:max-w-6xl xl:mx-auto xl:mb-4">
 		<h1 class="text-center space-x-5 md:text-start lg:pb-4 lg:grow">
