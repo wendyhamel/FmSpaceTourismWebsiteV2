@@ -38,7 +38,7 @@ module.exports = {
             'space': '2.025rem', // preset 9
         },
         spacing: {
-            '30': '7rem;', //112px
+            '30': '7.25rem;', //116px
             '68': '17rem;', // 272px
         },
         borderWidth: {
