@@ -126,12 +126,12 @@
 		<source srcset="../assets/destination/background-destination-desktop.jpg" media="(min-width:1024px)">
 		<source srcset="../assets/destination/background-destination-tablet.jpg" media="(min-width: 640px)">
 		<img
-			class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom"
+			class="fixed z-0 inset-0 w-full h-full object-cover object-center-bottom transform transition ease-space duration-2000"
 			src="../assets/destination/background-destination-mobile.jpg"
 			alt="image of space filled with stars"
 			x-show="loadPage === true"
-			x-transition:enter="transform transition ease-space duration-2000 origin-top-left md:origin-bottom-left"
-			x-transition:enter-start="scale-110 rotate-1 opacity-0"
+			x-transition:enter="transform transition ease-space duration-2000 origin-top md:origin-bottom"
+			x-transition:enter-start="scale-105 -rotate-1 opacity-0"
 			x-transition:enter-end="scale-full rotate-0 opacity-100"
 		>
 	</picture>

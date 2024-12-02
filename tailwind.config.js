@@ -46,7 +46,7 @@ module.exports = {
           '2000': '2000ms'
         },
         transitionTimingFunction: {
-            'space': 'cubic-bezier(.38, .48, .48, .40)'
+            'space': 'cubic-bezier(.24, .46, .74, .82)'
         }
     },
   },
