@@ -140,12 +140,18 @@
 			<span class="uppercase font-bold text-white/25 tracking-space-lg md:text-space-md xl:text-space-lg">01</span>
 			<span class="tracking-space-xl uppercase md:text-space-md md:tracking-space-2xl xl:text-space-lg xl:tracking-space-lg">Pick your destination</span>
 		</h1>
-		<section class="grid place-items-center my-12 pt-0.5 md:pt-0 md:my-16 lg:col-start-1 xl:my-0">
+		<section class="grid place-items-center my-12 pt-0.5 overflow-hidden md:pt-0 md:my-16 lg:col-start-1 xl:my-0">
 			<template x-for="(destination, index) in destinations">
 				<div
 					x-show="activeDestination === index"
 					x-cloak
 					class="col-start-1 col-span-1 row-start-1 row-span-1 w-[150px] md:w-[300px] xl:w-[480px]"
+					x-transition:enter="transform transition ease-space duration-2000"
+					x-transition:enter-start="rotate-45 opacity-0"
+					x-transition:enter-end="rotate-0 opacity-100"
+					x-transition:leave="transform transition ease-space duration-2000"
+					x-transition:leave-start="rotate-0 opacity-100"
+					x-transition:leave-end="-rotate-45 opacity-0"
 				>
 					<picture>
 						<source :srcset="destination.images.png" type="image/png">
@@ -158,7 +164,7 @@
 			<ul class="flex items-center gap-8 justify-center md:gap-7 lg:justify-start">
 				<template x-for="(destination, index) in destinations">
 					<li
-						class="border-b-3 pb-2"
+						class="border-b-3 pb-2 transition"
 						:class="activeDestination === index ? 'border-b-white hover:border-b-space-blue-light' : 'border-b-transparent hover:border-b-white/50'"
 					>
 						<button
@@ -171,30 +177,80 @@
 					</li>
 				</template>
 			</ul>
-			<template x-for="(destination, index) in destinations">
-				<article
-					x-show="activeDestination === index"
-					x-cloak
-					class="flex flex-col gap-6 mt-8 md:max-w-[32.125rem] md:mx-auto lg:mx-0 xl:mt-12 xl:gap-10"
-				>
+				<article class="flex flex-col gap-6 mt-8 md:max-w-[32.125rem] md:mx-auto lg:mx-0 xl:mt-12 xl:gap-10">
 					<section class="space-y-5">
-						<h2 class="font-heading text-space-2xl uppercase text-center leading-none px-10 md:text-[5rem] lg:text-start lg:px-0 xl:text-space-3xl" x-text="destination.name">
-						</h2>
-						<p class="text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:tracking-space-md lg:text-start lg:mx-0 lg:pr-14" x-text="destination.description">
-						</p>
+						<div class="grid">
+							<template x-for="(destination, index) in destinations">
+								<h2
+									class="col-start-1 row-start-1 font-heading text-space-2xl uppercase text-center leading-none px-10 md:text-[5rem] lg:text-start lg:px-0 xl:text-space-3xl"
+									x-text="destination.name"
+									x-show="activeDestination === index"
+									x-transition:enter="transition ease-in duration-1000"
+									x-transition:enter-start="opacity-0"
+									x-transition:enter-end="opacity-100"
+									x-transition:leave="transition ease-out duration-500"
+									x-transition:leave-start="opacity-100"
+									x-transition:leave-end="opacity-0"
+								>
+								</h2>
+							</template>
+						</div>
+						<div class="grid">
+							<template x-for="(destination, index) in destinations">
+								<p
+									class="col-start-1 row-start-1 text-space-md tracking-wide text-center text-space-blue-light max-w-prose mx-auto md:leading-space lg:tracking-space-md lg:text-start lg:mx-0 lg:pr-14"
+									x-text="destination.description"
+									x-show="activeDestination === index"
+									x-transition:enter="transition ease-in duration-1000"
+									x-transition:enter-start="opacity-0"
+									x-transition:enter-end="opacity-100"
+									x-transition:leave="transition ease-out duration-500"
+									x-transition:leave-start="opacity-100"
+									x-transition:leave-end="opacity-0"
+								>
+								</p>
+							</template>
+						</div>
 					</section>
 					<section class="pt-5 border-t border-white/25 text-center grid gap-y-1.5 md:grid-cols-2 md:gap-y-0 lg:text-start lg:pt-10">
 						<div class="space-y-2">
 							<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Avg. distance</p>
-							<p class="font-heading text-space-lg uppercase" x-text="destination.distance"></p>
+							<div class="grid">
+								<template x-for="(destination, index) in destinations">
+									<p
+										class="col-start-1 row-start-1 font-heading text-space-lg uppercase"
+										x-text="destination.distance"
+										x-show="activeDestination === index"
+										x-transition:enter="transition ease-in duration-1000"
+										x-transition:enter-start="opacity-0"
+										x-transition:enter-end="opacity-100"
+										x-transition:leave="transition ease-out duration-500"
+										x-transition:leave-start="opacity-100"
+										x-transition:leave-end="opacity-0"
+									></p>
+								</template>
+							</div>
 						</div>
 						<div class="space-y-2">
 							<p class="text-space-xs tracking-space-xl uppercase text-space-blue-light">Est. travel time</p>
-							<p class="font-heading text-space-lg uppercase" x-text="destination.travel"></p>
+							<div class="grid">
+								<template x-for="(destination, index) in destinations">
+									<p
+										class="col-start-1 row-start-1 font-heading text-space-lg uppercase"
+										x-text="destination.travel"
+										x-show="activeDestination === index"
+										x-transition:enter="transition ease-in duration-1000"
+										x-transition:enter-start="opacity-0"
+										x-transition:enter-end="opacity-100"
+										x-transition:leave="transition ease-out duration-500"
+										x-transition:leave-start="opacity-100"
+										x-transition:leave-end="opacity-0"
+									></p>
+								</template>
+							</div>
 						</div>
 					</section>
 				</article>
-			</template>
 		</section>
 	</section>
 </main>
