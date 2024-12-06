@@ -1861,6 +1861,10 @@ video {
     min-height: 4lh;
   }
 
+  .sm\:min-h-\[5lh\] {
+    min-height: 5lh;
+  }
+
   .sm\:duration-700 {
     transition-duration: 700ms;
   }
@@ -1965,6 +1969,10 @@ video {
 
   .md\:max-w-lg {
     max-width: 32rem;
+  }
+
+  .md\:max-w-prose {
+    max-width: 65ch;
   }
 
   .md\:origin-bottom {
