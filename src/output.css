@@ -1960,6 +1960,11 @@ video {
     padding-right: 2rem;
   }
 
+  .lg\:px-40 {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+
   .lg\:pb-12 {
     padding-bottom: 3rem;
   }
@@ -2014,6 +2019,18 @@ video {
 
   .lg\:pr-28 {
     padding-right: 7rem;
+  }
+
+  .lg\:pr-80 {
+    padding-right: 20rem;
+  }
+
+  .lg\:pr-96 {
+    padding-right: 24rem;
+  }
+
+  .lg\:pr-\[22rem\] {
+    padding-right: 22rem;
   }
 
   .lg\:text-start {
