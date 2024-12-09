@@ -2033,6 +2033,26 @@ video {
     padding-right: 22rem;
   }
 
+  .lg\:pr-16 {
+    padding-right: 4rem;
+  }
+
+  .lg\:pr-32 {
+    padding-right: 8rem;
+  }
+
+  .lg\:pr-36 {
+    padding-right: 9rem;
+  }
+
+  .lg\:pr-40 {
+    padding-right: 10rem;
+  }
+
+  .lg\:pr-44 {
+    padding-right: 11rem;
+  }
+
   .lg\:text-start {
     text-align: start;
   }
@@ -2117,6 +2137,10 @@ video {
 
   .xl\:pt-5 {
     padding-top: 1.25rem;
+  }
+
+  .xl\:pr-\[22rem\] {
+    padding-right: 22rem;
   }
 
   .xl\:text-space-2xl {
