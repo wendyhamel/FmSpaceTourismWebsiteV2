@@ -14,6 +14,10 @@ module.exports = {
             }
         },
         fontSize: {
+            '.5': '1.1rem',
+            '.5xl': '1.375rem',
+            '4.5xl': '2.5rem',
+            '7.5xl': '5rem',
             'space-4xl-res': 'min(max(5.125rem,20vw),9rem)',
             'space-3xl': '6.25rem',
             'space-2xl': '3.5rem',
@@ -36,8 +40,12 @@ module.exports = {
             'space': '2.025rem',
         },
         spacing: {
-            '30': '7.25rem;',
+            '29': '7.25rem;',
+            '30': '7.5625rem;',
             '68': '17rem;',
+            '4lh': '4lh',
+            '5lh' : '5lh',
+            '6lh' : '6lh',
         },
         borderWidth: {
             '3': '3px'

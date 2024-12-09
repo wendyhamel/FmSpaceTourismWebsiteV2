@@ -52,7 +52,7 @@
 				<div class="fixed inset-0 overflow-hidden">
 					<div class="absolute inset-0 overflow-hidden">
 						<div
-							class="pointer-events-none fixed inset-y-0 right-0 flex pl-[7.5625rem] min-w-64 max-w-full"
+							class="pointer-events-none fixed inset-y-0 right-0 flex pl-30 min-w-64 max-w-full"
 							x-show="mobileMenuOpened === true"
 							x-on:click.outside="mobileMenuOpened = false"
 							x-cloak
@@ -157,7 +157,7 @@
 			        ></span>
 				</template>
 	        </span>
-			<h1 class="grid pb-6 font-heading text-space-lg uppercase text-center leading-none md:text-[2.5rem] md:pb-3 lg:text-start xl:text-space-2xl">
+			<h1 class="grid pb-6 font-heading text-space-lg uppercase text-center leading-none md:text-4.5xl md:pb-3 lg:text-start xl:text-space-2xl">
 				<template x-for="(member, index) in crew">
 					<span
 						x-text="member.name"
@@ -185,7 +185,7 @@
 						x-transition:leave="transition ease-out duration-200"
 						x-transition:leave-start="opacity-100"
 						x-transition:leave-end="opacity-0"
-						class="block col-start-1 row-start-1 min-h-[6lh] max-w-xs sm:min-h-[4lh] md:max-w-lg lg:max-w-xl"
+						class="block col-start-1 row-start-1 min-h-6lh max-w-xs sm:min-h-4lh md:max-w-lg lg:max-w-xl"
 					></span>
 				</template>
 			</p>
