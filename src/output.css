@@ -1837,6 +1837,14 @@ video {
     max-width: 36rem;
   }
 
+  .lg\:max-w-prose {
+    max-width: 65ch;
+  }
+
+  .lg\:max-w-md {
+    max-width: 28rem;
+  }
+
   .lg\:shrink-0 {
     flex-shrink: 0;
   }
@@ -1994,6 +2002,18 @@ video {
 
   .lg\:pt-4 {
     padding-top: 1rem;
+  }
+
+  .lg\:pr-20 {
+    padding-right: 5rem;
+  }
+
+  .lg\:pr-24 {
+    padding-right: 6rem;
+  }
+
+  .lg\:pr-28 {
+    padding-right: 7rem;
   }
 
   .lg\:text-start {
