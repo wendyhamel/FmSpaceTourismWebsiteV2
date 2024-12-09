@@ -140,11 +140,17 @@
 			<span class="uppercase font-bold text-white/25 tracking-space-lg md:text-space-md xl:text-space-lg">03</span>
 			<span class="tracking-space-xl uppercase md:text-space-md md:tracking-space-2xl xl:text-space-lg xl:tracking-space-lg">Space launch 101</span>
 		</h1>
-		<section class="grid place-items-center lg:col-start-2 lg:row-start-2 lg:translate-x-30">
+		<section class="grid place-items-center overflow-hidden lg:col-start-2 lg:row-start-2 lg:translate-x-30">
 			<template x-for="(tech, index) in technology">
 				<div
 					x-show="activeTechnology === index"
 					x-cloak
+					x-transition:enter="transition transform ease-space duration-1000 motion-reduce:transform-none"
+					x-transition:enter-start="scale-105 opacity-0"
+					x-transition:enter-end="scale-100 opacity-100"
+					x-transition:leave="transition transform ease-space duration-700 motion-reduce:transform-none"
+					x-transition:leave-start="scale-100 opacity-100"
+					x-transition:leave-end="scale-105 opacity-0"
 					class="col-start-1 row-start-1 aspect-[3/2.064] overflow-hidden md:aspect-[4/1.8594] lg:aspect-auto"
 				>
 					<picture>
@@ -170,12 +176,13 @@
 					</li>
 				</template>
 			</ul>
-			<section class="grid place-items-center mt-10">
+			<section class="grid mt-10 lg:place-items-center">
 				<template x-for="(tech, index) in technology">
 					<article
 						x-show="activeTechnology === index"
 						x-cloak
-						class="col-start-1 row-start-1 flex flex-col gap-6 px-6 md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:px-8 lg:mx-auto"
+						x-transition.opacity.duration.700
+						class="col-start-1 row-start-1 flex flex-col gap-6 px-6 overflow-hidden md:mx-20 lg:flex-row lg:justify-between lg:items-center lg:max-w-6xl lg:px-8 lg:mx-auto"
 					>
 						<section class="space-y-4 pb-8">
 							<span class="block font-heading text-space-sm tracking-wider uppercase text-white/50 text-center md:text-[1.375rem] lg:text-start xl:text-space-xl">The terminology...</span>
